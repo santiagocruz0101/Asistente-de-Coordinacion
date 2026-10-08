@@ -1,0 +1,20 @@
+Total Proyectos =
+DISTINCTCOUNT(DimProyecto[Codigo del proyecto])
+
+Total Publicaciones =
+DISTINCTCOUNT(DimPublicacion[Codigo])
+
+Total Investigadores =
+DISTINCTCOUNT(FactInvestigadoresProyectos[Cédula del investigador])
+
+Total Grupos =
+DISTINCTCOUNT(DimGrupo[Codigo del grupo])
+
+Proyectos En Ejecución =
+CALCULATE(
+    [Total Proyectos],
+    DimProyecto[Estado del proyecto] = "En ejecución"
+)
+
+Publicaciones Vinculadas =
+DISTINCTCOUNT(FactProyectosPublicaciones[Codigo])
